@@ -1,0 +1,12 @@
+{
+    "name": "francois/rover",
+    "require": {
+        "phpunit/phpunit": "^7.4"
+    },
+    "authors": [
+        {
+            "name": "Francois Stander",
+            "email": "francoisst@tshwane.gov.za"
+        }
+    ]
+}
