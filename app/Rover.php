@@ -63,43 +63,43 @@ class Rover
     /**
      * Move Rover
      *
-     * Do not move when reaching boundary or other parked rover
+     * Avoid collisions with boundary and parked rovers
      *
-     * @return void
+     * @return bool
      **/
-    public function move(int $xEnd, int $yEnd, array $positions)
+    public function move(int $xEnd, int $yEnd, array $parkedRovers) : bool
     {
         switch ($this->direction) {
             case 'N':
-                if (!in_array((string)($this->x . $this->y+1), $positions)) {
-                    $this->y < $yEnd ? $this->y++ : null;
+                if (!in_array((string)($this->x . $this->y+1), $parkedRovers)) {
+                    return $this->y < $yEnd ? $this->y++ : false;
                 } else {
                     return false;
                 }
                 break;
             case 'S':
-                if (!in_array((string)($this->x . $this->y - 1), $positions)) {
-                    $this->y > 0 ? $this->y-- : null;
+                if (!in_array((string)($this->x . $this->y - 1), $parkedRovers)) {
+                    return $this->y > 0 ? $this->y-- : false;
                 } else {
                     return false;
                 }
                 break;
             case 'E':
-                if (!in_array((string)($this->x + 1 . $this->y), $positions)) {
-                    $this->x < $xEnd? $this->x++ : null;
+                if (!in_array((string)($this->x + 1 . $this->y), $parkedRovers)) {
+                    return $this->x < $xEnd? $this->x++ : false;
                 } else {
                     return false;
                 }
                 break;
             case 'W':
-                if (!in_array((string)($this->x - 1 . $this->y), $positions)) {
-                    $this->x > 0 ? $this->x-- : null;
+                if (!in_array((string)($this->x - 1 . $this->y), $parkedRovers)) {
+                    return $this->x > 0 ? $this->x-- : false;
                 } else {
                     return false;
                 }
                 break;
             default:
-                //Do nothing
+                return false;
                 break;
         }
     }
