@@ -1,0 +1,126 @@
+/* Main stylesheet */
+
+html, body {
+    background-color: blanchedalmond;
+    color: brown;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+
+.full-height {
+    height: 30vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links > a {
+    color: brown;
+    padding: 0 25px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+table {
+    background-color: white;
+}
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.button span:after {
+content: '\00bb';  /* CSS Entities. To use HTML Entities, use &#8594;*/
+position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover span {
+  padding-right: 25px;
+}
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+/* Classes used to turn rover on heading */
+.east {
+    transform: rotate(90deg);
+}
+
+.south {
+    transform: rotate(180deg);
+}
+
+.west {
+    transform: rotate(270deg);
+}
+
+#content-div {
+    text-align: center;
+}
+
+#plateau-table {
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid black;
+}
+
+td:hover {
+    background-color: yellow;
+}
+
+.number {
+    text-align: center;
+}
+
+div.new-rover-line-item {
+    margin-bottom: 10px;
+}

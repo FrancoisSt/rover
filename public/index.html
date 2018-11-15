@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/main.js"></script>
+    <title>Mars Explorer</title>
+</head>
+
+<body>
+    <div id="content-div">
+        <h1>Mars Rover Command Center</h1>
+        <div id="plateau-target"></div>
+        <table border="1" width="<?php echo ($plateau->xEnd * 100) + 20 ?>px" height="<?php echo ($plateau->yEnd * 100) + 20 ?>px"
+            id="plateau-table">
+            <?php for ($y = $plateau->yEnd; $y >= 0; $y--) { ?>
+            <tr>
+                <?php for ($x = 0; $x <= $plateau->xEnd; $x++) { ?>
+                <td id="<?php echo $x . $y ?>" width="80px" height="80px" align="center" class="cell"></td>
+                <?php 
+            } ?>
+            </tr>
+            <?php 
+    } ?>
+        </table>
+        <br>
+        <button type="button" class="button" id="start-button" onclick="explore()">Start</button>
+        <button type="button" class="button" id="reset-button" onclick="resetRovers()">Reset</button>
+        <br><br>
+        <form action="RequestController.php" method="post" id="input-form" name="input-form">
+            <button type="submit" class="button" name="submit-input-form">SAVE</button>
+            <br><br>
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -2,8 +2,6 @@
 
 class Plateau
 {
-    const X_START = 0;
-    const Y_START = 0;
     protected $xEnd;
     protected $yEnd;
 

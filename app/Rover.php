@@ -10,10 +10,6 @@ class Rover
     /**
      * Class constructor
      *
-     * When object is created, starting postition,
-     * direction and moves are variables required
-     *
-     * @return void
      **/
     public function __construct(int $x, int $y, string $direction, string $moves)
     {
@@ -26,7 +22,6 @@ class Rover
     /**
      * Getter
      *
-     * @return $this->property
      **/
     public function __get($property)
     {
@@ -36,7 +31,6 @@ class Rover
     /**
      * Setter
      *
-     * @return $this->property
      **/
     public function __set($property, $value)
     {
@@ -46,17 +40,18 @@ class Rover
     /**
      * Turn Rover
      *
-     * @param string $direction
      * @return void
      **/
-    public function turn(string $direction)
+    public function turn(string $direction) : void
     {
+        // Use a numbered array of directions to allow turning left and right through array values
         $directions = ['N', 'E', 'S', 'W'];
 
+        // Turn left or right, while controlling for turning left from the first element or right from the last element
         if ($direction == 'L') {
-            return $this->direction = $directions[array_search($this->direction, $directions) -1] ?? $directions[count($directions) - 1];
+            $this->direction = $directions[array_search($this->direction, $directions) - 1] ?? $directions[count($directions) - 1];
         } elseif ($direction == 'R') {
-            return $this->direction = $directions[array_search($this->direction, $directions) +1] ?? $directions[0];
+            $this->direction = $directions[array_search($this->direction, $directions) + 1] ?? $directions[0];
         }
     }
 
@@ -69,9 +64,11 @@ class Rover
      **/
     public function move(int $xEnd, int $yEnd, array $parkedRovers) : bool
     {
+        // Check current direction of rover and move one space in that direction
+        // Do not allow move if it will hit boundary or a parked rover
         switch ($this->direction) {
             case 'N':
-                if (!in_array((string)($this->x . $this->y+1), $parkedRovers)) {
+                if (!in_array((string)($this->x . $this->y + 1), $parkedRovers)) {
                     return $this->y < $yEnd ? $this->y++ : false;
                 } else {
                     return false;
@@ -86,7 +83,7 @@ class Rover
                 break;
             case 'E':
                 if (!in_array((string)($this->x + 1 . $this->y), $parkedRovers)) {
-                    return $this->x < $xEnd? $this->x++ : false;
+                    return $this->x < $xEnd ? $this->x++ : false;
                 } else {
                     return false;
                 }

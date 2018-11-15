@@ -2,28 +2,30 @@
 
 class ExplorationController
 {
-    public static function moveRovers()
+    /**
+     * Handle the rover movement
+     *
+     **/
+    public static function moveRovers(Plateau $plateau, array $rovers)
     {
-        $plateauInput = [5, 5];
-
-        $roversInput = [
-            ['x' => 1, 'y' => 2, 'direction' => 'N', 'moves' => 'MRMLMMRM'],
-            ['x' => 4, 'y' => 5, 'direction' => 'N', 'moves' => 'MRMLMMRLM'],
-            ['x' => 0, 'y' => 0, 'direction' => 'N', 'moves' => 'MRMLMMRLM'],
-        ];
-
-        $plateau = new Plateau($plateauInput[0], $plateauInput[1]);
-
+        // Initialise an empty array to hold parked rover coordinates
+        // Used to prevent collisions when moving rovers
         $parkedRovers = [];
 
-        foreach ($roversInput as $index => $input) {
-            $rover = new Rover($input['x'], $input['y'], $input['direction'], $input['moves']);
+        // Initialise an empty array to hold results that satisfy challenge result
+        // requirements as well as unit test expected result format
+        $result = [];
 
-            echo "Rover \"$index\" Start: " . $rover->x . " " . $rover->y . " " . $rover->direction . "<br><br>";
+        // Create a new Rover object for each of the rovers in the $rovers array
+        // Once created, move rover according to 'moves' instructions
+        // Rovers are allowed to start at the same coordinates 
+        foreach ($rovers as $input) {
+
+            $rover = new Rover($input['x'], $input['y'], $input['direction'], $input['moves']);
 
             $moves = str_split($input['moves']);
 
-            for ($i=0; $i < count($moves); $i++) {
+            for ($i = 0; $i < count($moves); $i++) {
                 if ($moves[$i] == 'L' || $moves[$i] == 'R') {
                     $rover->turn($moves[$i]);
                 } elseif ($moves[$i] == 'M') {
@@ -31,8 +33,8 @@ class ExplorationController
                 }
             }
             array_push($parkedRovers, $rover->x . $rover->y);
-
-            echo "Rover \"$index\" End: " . $rover->x . " " . $rover->y . " " . $rover->direction . "<br><br>";
+            array_push($result, $rover->x . ' ' . $rover->y . ' ' . $rover->direction);
         }
+        return $result;
     }
 }
