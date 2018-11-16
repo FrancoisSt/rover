@@ -65,7 +65,7 @@ class Rover
     public function move(int $xEnd, int $yEnd, array $parkedRovers) : bool
     {
         // Check current direction of rover and move one space in that direction
-        // Do not allow move if it will hit boundary or a parked rover
+        // Do not allow move if it will cross boundary or a parked rover
         switch ($this->direction) {
             case 'N':
                 if (!in_array((string)($this->x . $this->y + 1), $parkedRovers)) {

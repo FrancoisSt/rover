@@ -91,7 +91,7 @@ A modern web browser
 ```
 
 3. Ensure that the "/var/www/rover" folder belongs to your web server user (Apache: www-data) and that the folder
-    permissions are set to 755
+    permissions are set to 0755
 
 ## Running the tests
 
