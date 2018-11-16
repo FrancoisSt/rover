@@ -1,7 +1,9 @@
 # Mars Rover Tech Challenge
 
 ## Comments By The Developer
+
 ### Core Backend Challenge Comments
+
 My approach was to ensure that I use object oriented programming principles.
 Objects were created for both the Plateau and Rover with constructors and getters and setters.
 
@@ -16,6 +18,8 @@ Movement is also restricted by the boundaries of the plateau and by any parked r
 ### General Comments
 1. The backend challenge was completed using PHP7.
 2. Input for the challenge was coded with HTML, CSS, Bootstrap and JavaScript/JQuery.
+3. Although this is a backend challenge, I spent a bit of extra time on the frontend to allow easier visualisation of the result.
+4. I did not use a framework like Laravel for the backend as this would have been overkill for a project with a limited scope and lifespan.
 
 ### Assumptions Made
 1. Rovers are allowed to start from the same coordinates (Although I have controlled for this on the front-end).

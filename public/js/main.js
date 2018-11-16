@@ -34,21 +34,21 @@ $(document).ready(function () {
             $('.control-buttons').removeClass('hidden');
             $('#rovers-table tbody').append(
                 `
-                    <tr>
-                        <td><input type="number" name="x-start" id="x-start" value="${id[0]}" class="form-control number" readonly title="This rover's starting X-Axis position"></td>
-                        <td><input type="number" name="y-start" id="y-start" value="${id[1]}" class="form-control number" readonly title="This rover's starting Y-Axis position"></td>
-                        <td>
-                            <select name="direction" id="direction" data-id="${id}" class="form-control" title="Choose the rover's starting direction">
-                                <option value="N">N</option>
-                                <option value="E">E</option>
-                                <option value="S">S</option>
-                                <option value="W">W</option>
-                            </select>
-                        </td>
-                        <td><input type="text" name="commands" class="form-control commands" placeholder="Enter movement commands" title="Enter movement commands 'L = Left, R = Right, M = Move'"></td>
-                        <td><button type="button" id="${id}" class="btn btn-default remove-rover-button" title="Click to remove this rover">Remove</button></td>
-                    </tr>
-                `
+                <tr>
+                    <td><input type="number" name="x-start" id="x-start" value="${id[0]}" class="form-control number" readonly title="This rover's starting X-Axis position"></td>
+                    <td><input type="number" name="y-start" id="y-start" value="${id[1]}" class="form-control number" readonly title="This rover's starting Y-Axis position"></td>
+                    <td>
+                        <select name="direction" id="direction" data-id="${id}" class="form-control" title="Choose the rover's starting direction">
+                            <option value="N">N</option>
+                            <option value="E">E</option>
+                            <option value="S">S</option>
+                            <option value="W">W</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="commands" class="form-control commands" placeholder="Enter movement commands" title="Enter movement commands 'L = Left, R = Right, M = Move'"></td>
+                    <td><button type="button" id="${id}" class="btn btn-default remove-rover-button" title="Click to remove this rover">Remove</button></td>
+                </tr>
+            `
             );
         }
     });
@@ -146,7 +146,7 @@ function drawPlateau(x, y) {
 }
 
 // Filter command/moves input
-// Only allow valid moves (l, r or m)
+// Only allow valid moves (l, r or m) - case insensitive
 function filterInput(str) {
     let pattern = /[^lrm]/gi;
     return str.replace(pattern, "");
@@ -177,7 +177,6 @@ function calculateRoverRoutes(results) {
         data: { results, maxX, maxY },
         dataType: "json",
         success: function (data) {
-            console.log(data);
             if (data != 'error') {
                 [...data].map(function (rover) {
                     let str = rover.split(" ");
@@ -221,7 +220,7 @@ function resetRovers() {
     });
 }
 
-// Move the rovers to their final positions
+// Move the rover to its final position
 function move(str, direction) {
     var elements = str.split(" ");
 
