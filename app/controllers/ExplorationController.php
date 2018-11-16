@@ -18,7 +18,6 @@ class ExplorationController
 
         // Create a new Rover object for each of the rovers in the $rovers array
         // Once created, move rover according to 'moves' instructions
-        // Rovers are allowed to start at the same coordinates 
         foreach ($rovers as $input) {
 
             $rover = new Rover($input['x'], $input['y'], $input['direction'], $input['moves']);
@@ -32,6 +31,8 @@ class ExplorationController
                     $move = $rover->move($plateau->xEnd, $plateau->yEnd, $parkedRovers);
                 }
             }
+
+            // Add results to the two arrays
             array_push($parkedRovers, $rover->x . $rover->y);
             array_push($result, $rover->x . ' ' . $rover->y . ' ' . $rover->direction);
         }

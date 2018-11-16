@@ -1,12 +1,24 @@
 /* Main stylesheet */
 
 html, body {
-    background-color: blanchedalmond;
-    color: brown;
+    background-image: url('../images/rover-background.jpg');
+    color: black;
     font-family: 'Nunito', sans-serif;
     font-weight: 200;
     height: 100vh;
     margin: 0;
+}
+
+#main-heading {
+    font-size: 4em;
+    color: #f4511e;
+}
+
+#plateau-header-text {
+    font-size: 2em;
+    color: #f4511e;
+    background-color: bisque;
+    padding: 10px 50px;
 }
 
 .full-height {
@@ -47,9 +59,6 @@ html, body {
     text-transform: uppercase;
 }
 
-table {
-    background-color: white;
-}
 .button {
   display: inline-block;
   border-radius: 4px;
@@ -86,9 +95,7 @@ position: absolute;
   right: 0;
 }
 
-.m-b-md {
-    margin-bottom: 30px;
-}
+
 
 /* Classes used to turn rover on heading */
 .east {
@@ -113,7 +120,7 @@ position: absolute;
     border: 2px solid black;
 }
 
-td:hover {
+table#plateau-table td:hover {
     background-color: yellow;
 }
 
@@ -123,4 +130,12 @@ td:hover {
 
 div.new-rover-line-item {
     margin-bottom: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+table {
+    background-color: bisque;
 }

@@ -8,6 +8,34 @@ require_once('app/controllers/ExplorationController.php');
 
 class ExplorationControllerTest extends TestCase
 {
+    public function testGoogleTestCases()
+    {
+        // Plateau top right coordinates
+        $plateauInput = [5, 5];
+
+        // Rovers start, direction and move values
+        $rovers = [
+            ['x' => 1, 'y' => 2, 'direction' => 'N', 'moves' => 'LMLMLMLMM'],
+            ['x' => 3, 'y' => 3, 'direction' => 'E', 'moves' => 'MMRMMRMRRM'],
+        ];
+
+        // Expected results
+        $expected = [
+            '1 3 N',
+            '5 1 E',
+        ];
+
+        // Initialise a new Pleateau object
+        $plateau = new Plateau($plateauInput[0], $plateauInput[1]);
+
+        $results = ExplorationController::moveRovers($plateau, $rovers);
+
+        foreach ($results as $index => $rover) {
+            $this->assertEquals($rover, $expected[$index]);
+        }
+
+    }
+
     public function testMovement()
     {
         // Plateau top right coordinates

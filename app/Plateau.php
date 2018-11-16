@@ -8,8 +8,6 @@ class Plateau
     /**
      * Class constructor
      *
-     * When object is created, plateau grid size is required
-     *
      * @return void
      **/
     public function __construct(int $xEnd, int $yEnd)
@@ -20,8 +18,7 @@ class Plateau
 
     /**
      * Getter
-     *
-     * @return $this->property
+     * 
      **/
     public function __get($property)
     {
@@ -30,8 +27,7 @@ class Plateau
 
     /**
      * Setter
-     *
-     * @return $this->property
+     * 
      **/
     public function __set($property, $value)
     {
