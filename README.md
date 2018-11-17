@@ -83,7 +83,7 @@ A modern web browser
 
 2. Create a new apache server configuration file with the following directory settings (or the equivalent for the server you are using):
 ```
-<Directory "/home/francois/www/rover/public">
+<Directory "/var/www/rover/public">
     Options Indexes FollowSymLinks
     AllowOverride All
     Require all granted
