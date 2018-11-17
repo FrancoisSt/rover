@@ -98,7 +98,7 @@ A modern web browser
 Test are run with [phpunit](https://phpunit.de/)
 
 1. Open a terminal and navigate to the "rover" root folder
-2. Run the following command: phpunit tests
+2. Run the following command: `phpunit tests`
 
 ## Authors
 
